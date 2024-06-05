@@ -21,6 +21,22 @@ variable "write_capacity" {
   default = 0
 }
 
+variable "hash_key" {
+  type = string
+}
+
+variable "range_key" {
+  type    = string
+  default = null
+}
+
+variable "attributes" {
+  type = list(object({
+    name = string
+    type = string
+  }))
+}
+
 variable "autoscale_capacity" {
   type = object({
     read = object({
