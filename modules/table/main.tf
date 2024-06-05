@@ -25,6 +25,15 @@ resource "aws_dynamodb_table" "table" {
       type = attribute.value.type
     }
   }
+
+  global_secondary_index {
+    name            = var.gsi_name
+    hash_key        = var.gsi_hash_key
+    range_key       = var.gsi_range_key
+    projection_type = "ALL"
+    read_capacity   = var.gsi_read_capacity
+    write_capacity  = var.gsi_write_capacity
+  }
 }
 
 resource "aws_appautoscaling_target" "table_read_target" {

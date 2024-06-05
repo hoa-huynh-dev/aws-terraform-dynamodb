@@ -30,11 +30,35 @@ variable "range_key" {
   default = null
 }
 
+variable "gsi_name" {
+  type = string
+}
+
+variable "gsi_read_capacity" {
+  type    = number
+  default = 0
+}
+
+variable "gsi_write_capacity" {
+  type    = number
+  default = 0
+}
+
+variable "gsi_hash_key" {
+  type = string
+}
+
+variable "gsi_range_key" {
+  type    = string
+  default = null
+}
+
 variable "attributes" {
   type = list(object({
     name = string
     type = string
   }))
+  default = []
 }
 
 variable "autoscale_capacity" {
